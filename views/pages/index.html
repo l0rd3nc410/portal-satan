@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= pageName %></title>
+    <title>
+        <%= pageName %>
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-    
+    <%- include('header.html') %>
+
+        <main>
+            <section class="container">
+                <div class="highlight">
+                    <div class="highlight__card">
+                        <img class="highlight__image" src="/images/landscape0.jpg" alt="Beautiful Place">
+                        <div class="highlight__overlay">
+                            <h2 class="highlight__title">Satanismo em forma de música, você já escutou Ghost?</h2>
+                            <p class="highlight__content">Ghost B.C. uma banda fundada pelo proprio Satanas, mas suas
+                                músicas são menos satanicas do que de costume, como um projeto pessoal vem convertendo
+                                milhares de jovens ao satanismo?</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
 </body>
+
 </html>

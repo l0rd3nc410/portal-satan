@@ -1,7 +1,51 @@
-:root {}
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('header.css');
+@import url('highlight.css');
+:root {
+    --white-color-normal: #f5f5f5;
+    --gray-color-normal: #bebebe;
+    --black-color-normal: #161616;
+    --black-color-ligthen-1: #272727;
+    --black-color-ligthen-2: #303030;
+    --red-color-normal: #d30000;
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
 }
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--black-color-ligthen-1);
+}
+
+.container {
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0 2%;
+}
+
+/* #region Form */
+
+.form__icon {
+    color: var(--white-color-normal);
+    font-size: 24px;
+}
+
+.form__label {
+    display: flex;
+    align-items: center;
+}
+
+.form__field {
+    padding: 5px 10px;
+    font-weight: 600;
+    outline: none;
+}
+
+/* #endregion */

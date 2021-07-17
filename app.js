@@ -9,10 +9,20 @@ app.use(express.urlencoded({ extended: true }));
 
 app.engine('html', ejs.renderFile);
 app.set('view engine', 'html');
-app.use('./public', express.static(path.join(path.resolve(), 'public')));
-app.set('view', [
-    path.join(path.resolve(), '/views/pages')
+app.use(express.static(path.join(path.resolve(), 'public')));
+app.set('views', [
+    path.join(path.resolve(), '/views'),
+    path.join(path.resolve(), '/views/pages'),
+    path.join(path.resolve(), '/views/partials')
 ])
+
+app.get('/', (req, res) => {
+    res.render('pages/index', { pageName: 'Portal' });
+});
+
+app.get('/:type', (req, res) => {
+    res.send(req.params.type);
+});
 
 app.listen(5000, () => {
 

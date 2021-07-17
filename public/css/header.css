@@ -1,0 +1,62 @@
+/* #region Modified Classes*/
+
+.container--header {
+    display: flex;
+    justify-content: space-around;
+}
+
+.form--search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.form__label--search {
+    padding: 4px 16px;
+    background-color: var(--black-color-ligthen-2);
+    border-radius: 16px;
+}
+
+.form__icon--search {
+    margin-right: 8px;
+}
+
+.form__field--search {
+    color: var(--white-color-normal);
+    background: none;
+    border: none;
+}
+
+/* #endregion */
+
+.header {
+    padding: 12px 0;
+    background-color: var(--black-color-normal);
+}
+
+.header__brand {
+    font-size: 32px;
+    line-height: 32px;
+}
+
+.brand__text {
+    color: var(--white-color-normal);
+    font-weight: normal;
+}
+
+.brand__text--bold {
+    color: var(--red-color-normal);
+    font-weight: 600;
+}
+
+@media screen and (max-width: 769px) {
+    .container--header {
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    .form__label--search {
+        margin-top: 16px;
+    }
+}
