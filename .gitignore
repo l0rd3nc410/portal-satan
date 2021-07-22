@@ -122,4 +122,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Ignore Docker Data and Env File
+.docker
+.env
+
 # End of https://www.toptal.com/developers/gitignore/api/node

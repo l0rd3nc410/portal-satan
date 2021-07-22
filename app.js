@@ -1,7 +1,16 @@
 import express from 'express';
-import ejs from 'ejs';
-import path from 'path'
-import { type } from 'os';
+import mongoose from 'mongoose';
+import path from 'path';
+
+const uri = 'mongodb://GHOST:PASS12345@localhost:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false';
+
+mongoose.connect(uri , { useNewUrlParser: true, useUnifiedTopology: true })
+.then(() => {
+    console.log('logged');
+}).catch(err => {
+    console.log(err.message);
+});
+
 
 const app = express();
 
