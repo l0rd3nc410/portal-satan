@@ -42,6 +42,7 @@
 .brand__text {
     color: var(--white-color-normal);
     font-weight: normal;
+    text-decoration: none;
 }
 
 .brand__text--bold {

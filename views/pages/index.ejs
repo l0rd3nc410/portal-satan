@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= pageName %>
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <%- include('header.ejs') -%>
+    </header>
+
+    <main>
+        <%- include('main-news.ejs') -%>
+    </main>
+
+    <section class="section__news">
+        <div class="container">
+            <h2 class="section__title">Recent News</h2>
+            <div class="news">
+                <div class="news__flex">
+                    <%- include('news.ejs') -%> 
+                </div>
+                <div class="most-viewed">
+                    <%- include('most-viewed.ejs') -%> 
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
