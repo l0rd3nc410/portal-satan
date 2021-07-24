@@ -1,22 +1,25 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 import path from 'path';
+import News from './schemas/schema-news.js'
 
-const uri = 'mongodb://GHOST:PASS12345@localhost:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false';
+dotenv.config();
 
-mongoose.connect(uri , { useNewUrlParser: true, useUnifiedTopology: true })
-.then(() => {
-    console.log('logged');
-}).catch(err => {
-    console.log(err.message);
-});
+const uri = `mongodb+srv://${process.env.MONGO_INITDB_ROOT_USERNAME}:${process.env.MONGO_INITDB_ROOT_PASSWORD}@cluster0.j9per.mongodb.net/satan-news?retryWrites=true&w=majority`;
+
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+
+    }).catch(err => {
+        console.log(err.message);
+    });
 
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(path.resolve(), 'public')));
 app.set('views', [
@@ -27,14 +30,25 @@ app.set('views', [
 
 app.get('/', (req, res) => {
 
-    if(req.query.search == null) {
-        res.render('pages/index', { pageName: 'Portal' });
+    if (req.query.search == null) {
+        News.find({}).sort({'_id':-1}).exec((err, news) => {
+            News.find({}).sort({'views':-1}).limit(3).exec((err, mostViewed) => {
+                res.render('pages/index', { pageName: 'Portal', 'news':news, mostViewed:mostViewed });
+            });
+        });        
     }
-    
+    else {
+        News.find({title: {$regex: req.query.search, $options:'i'}}).exec((err, news) => {
+            console.log(news);
+        });
+    }
+
 });
 
-app.get('/:topic', (req, res) => {    
-    res.render('pages/single-news', { pageName: req.params.topic.toUpperCase()  });
+app.get('/:topic', (req, res) => {
+    News.findOneAndUpdate({'slug':req.params.topic}, {$inc : {views: 1}}, (err, news) => {
+        res.render('pages/single-news', { pageName: req.params.topic.toUpperCase(), news:news });
+    });
 });
 
 app.listen(5000, () => {

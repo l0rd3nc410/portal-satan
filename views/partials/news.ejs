@@ -1,15 +1,34 @@
-<% for( let index=0; index < 6; index++ ) { %>
+<% for( let index=0; index < news.length; index++ ) { %>
     <div class="news__card">
-        <img class="news-card__image" src="/images/landscape0.jpg" alt="Card Image">
+        <img class="news-card__image" src="<%= news[index].news_img %>" alt="Card Image">
         <div class="news-card__content">
-            <div class="news-card__category">Music</div>
-            <div class="news-card__title">Seria Muca lider da banda Ghost?</div>
-            <div class="news-card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dignissimos, minus error dolor enim dolores atque amet consequuntur nihil ipsum in
-                expedita ipsa, provident necessitatibus fugit molestias incidunt deleniti? Repellat,
-                expedita.
+            <div class="news-card__category">
+                <%= news[index].category %>
             </div>
-            <a class="news-card__link" href="#">Saiba Mais</a>
+            <div class="news-card__title news-card__title--normal">
+                <%= news[index].title %>
+            </div>
+            <div class="news-card__text">
+
+                <%= news[index].news_content.substr(0, 100) %>...
+
+            </div>
+            <a class="news-card__link" href="<%= news[index].slug %>">Saiba Mais</a>
         </div>
     </div>
-<% } %>
+    <% } %>
+
+        <script>
+            window.onload = () => {
+                let titles = document.querySelectorAll('.news-card__title--normal');
+                let h = [];
+
+                titles.forEach(x => {
+                    h.push(x.getBoundingClientRect().height);
+                });
+                h.sort().reverse();
+                for (let i = 0; i < titles.length; i++) {
+                    titles[i].style.height = `${h[0]}px`;
+                }
+            }
+        </script>

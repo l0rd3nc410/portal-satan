@@ -19,22 +19,19 @@
     </header>
 
     <main>
-        <%- include('main-news.ejs') -%>
-    </main>
-
-    <section class="section__news">
-        <div class="container">
-            <h2 class="section__title">Recent News</h2>
-            <div class="news">
-                <div class="news__flex">
-                    <%- include('news.ejs', {news:news}) -%> 
-                </div>
-                <div class="most-viewed">
-                    <%- include('most-viewed.ejs') -%> 
+        <section class="section__news">
+            <div class="container">
+                <h2 class="section__title">Recent News</h2>
+                <div class="news">
+                    <div class="news__flex">
+                        <%- include('news.ejs', {news:news}) -%> 
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
+
+
 </body>
 
 </html>

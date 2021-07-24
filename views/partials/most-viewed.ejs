@@ -1,16 +1,16 @@
 <h2 class="most-viewed__title">Most Viewed</h2>
 <div class="most-viewed__news">
+    <% for( let index=0; index < mostViewed.length; index++ ) { %>
     <div class="news__card news__card--most-viewed">
-        <img class="news-card__image news-card__image--most-viewed" src="/images/landscape0.jpg" alt="Card Image">
+        <img class="news-card__image news-card__image--most-viewed" src="<%= mostViewed[index].news_img %>" alt="Card Image">
         <div class="news-card__content">
-            <div class="news-card__category">Music</div>
-            <div class="news-card__title">Seria Muca lider da banda Ghost?</div>
-            <div class="news-card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dignissimos, minus error dolor enim dolores atque amet consequuntur nihil ipsum in
-                expedita ipsa, provident necessitatibus fugit molestias incidunt deleniti? Repellat,
-                expedita.
+            <div class="news-card__category"><%= mostViewed[index].category %></div>
+            <div class="news-card__title"><%= mostViewed[index].title %></div>
+            <div class="news-card__text">
+                <%= mostViewed[index].news_content.substr(0, 100) %>...
             </div>
-            <a class="news-card__link" href="#">Saiba Mais</a>
+            <a class="news-card__link" href="<%= mostViewed[index].slug %>">Saiba Mais</a>
         </div>
     </div>
+    <% } %>
 </div>

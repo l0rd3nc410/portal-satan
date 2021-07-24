@@ -23,22 +23,16 @@
             <div class="container">
                 <div class="news">
                     <div class="single-news">
-                        <h2 class="single-news__title">Quem é Muca Muriçoca o famoso criador do Papa Emeritus III?</h2>
+                        <h2 class="single-news__title"><%= news.title %></h2>
                         <div class="single-news__author">
-                            <img class="author__image" src="/images/user.jpg" alt="User Image">
-                            <span class="author__name">Por Muca Muriçoca</span>
+                            <img class="author__image" src="<%= news.author_img %>" alt="User Image">
+                            <span class="author__name">Por <%= news.author %> </span>
                         </div>
                         <div class="single-news__content">
-                            <div class="single-news__text">Famoso por suas apresentações em shows e eventos de animes
-                                Muca Muriçoca como é conhecido pela galerinha, também é o famoso criador da entidade
-                                Papa Emeritus membro de extrema importancia na banda Ghost BC, o que muitos não sabem é
-                                que atualmente ele não participa dos shows como Papa, no seu lugar está um sósia
-                                conhecido por Tobias Forge, dizem que ele matou o primeiro Papa (Muca Muriçoca) pois o
-                                mesmo estava atarefado com seu outro projeto pessoal, o Cantadas Enfadonhas. Hoje Muca
-                                atua no backstage da banda, ajudando na criação de músicas e novos visuais para os
-                                integrantes. 
+                            <div class="single-news__text"> 
+                                <%= news.news_content %>
                             </div>
-                            <img class="single-news__image" src="/images/unnamed.jpg" alt="">
+                            <img class="single-news__image" src="<%= news.news_img %>" alt="">
                         </div>
                     </div>
                     <div class="most-viewed most-viewed">
